@@ -898,7 +898,8 @@ const getDarkStyle = async (req) => {
     if (state.getLightDarkMode(req.user) === "light") return null;
   }
   if (state.plugin_cfgs) {
-    let anyBsThemeCfg = state.plugin_cfgs["any-bootstrap-theme"];
+    let anyBsThemeCfg =
+      state.plugin_cfgs[state.getLayoutPlugin(req?.user).plugin_name];
     if (!anyBsThemeCfg)
       anyBsThemeCfg = state.plugin_cfgs["@saltcorn/any-bootstrap-theme"];
 
